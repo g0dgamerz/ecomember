@@ -12,17 +12,17 @@
   <section class="w-50 ml-auto text-right mb-5">
     <div class="row">
       <span class="col">Subtotal</span>
-      <span class="col">100</span>
+      <span class="col">{{this.subtotal}}</span>
+    </div>
+     <div class="row">
+      <span class="col">Tax</span>
+      <span class="col">{{this.tax}}</span>
     </div>
      <div class="row">
       <span class="col">Total</span>
-      <span class="col">9</span>
-    </div>
-     <div class="row">
-      <span class="col">Total</span>
-      <span class="col">109</span>
+      <span class="col">{{this.total}}</span>
     </div>
   </section>
-  <button class="btn btn-success float-right"></button>
+  <button class="btn btn-success float-right" type="button">Check Out</button>
   </main>
 {{outlet}}

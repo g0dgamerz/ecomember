@@ -1,5 +1,6 @@
 {{page-title "Index"}}
 <GeneralContainer>
-  <Product />
-  <Product />
+  {{#each this.model as |product|}}
+    <Product @product={{product}} />
+  {{/each}}
 </GeneralContainer>

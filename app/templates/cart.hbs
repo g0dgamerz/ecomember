@@ -9,18 +9,24 @@
     </li>
     <li class="breadcrumb-item">Shopping Cart</li>
   </ol>
+
+   {{#each this.cart.itemList as |item|}}
+    <div class="d-flex align-items-center">
+      <h4>{{item.name}}</h4>
+    </div>
+  {{/each}}
   <section class="w-50 ml-auto text-right mb-5">
     <div class="row">
       <span class="col">Subtotal</span>
-      <span class="col">{{this.subtotal}}</span>
+      <span class="col">{{currency this.subtotal  sign="$"}}</span>
     </div>
      <div class="row">
       <span class="col">Tax</span>
-      <span class="col">{{this.tax}}</span>
+      <span class="col">{{currency this.tax sign="$"}}</span>
     </div>
      <div class="row">
       <span class="col">Total</span>
-      <span class="col">{{this.total}}</span>
+      <span class="col">{{currency this.total sign="$"}}</span>
     </div>
   </section>
   <button class="btn btn-success float-right" type="button">Check Out</button>

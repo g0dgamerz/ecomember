@@ -4,31 +4,45 @@
   <ol class="breadcrumb">
     <li class="breadcrumb-item">
       <LinkTo @route="index">
-      Home
+        Home
       </LinkTo>
     </li>
     <li class="breadcrumb-item">Shopping Cart</li>
   </ol>
 
-   {{#each this.cart.itemList as |item|}}
-    <div class="d-flex align-items-center">
-      <h4>{{item.name}}</h4>
+  {{#each this.cart.itemList as |item|}}
+    <div class="cart-item d-flex align-items-center">
+      <div class="cart-item-thumbnail">
+        <img src={{item.image}} alt="">
+      </div>
+      <div class="ml-3">
+        <h4>{{item.name}}</h4>
+        <i class="font-weight-bold">{{currency item.price}}</i>
+      </div>
+      <input
+        type="number"
+        class="ml-auto"
+        value={{item.count}}
+        {{on "input" (fn this.updateItemCount item)}}
+      >
     </div>
   {{/each}}
   <section class="w-50 ml-auto text-right mb-5">
     <div class="row">
       <span class="col">Subtotal</span>
-      <span class="col">{{currency this.subtotal  sign="$"}}</span>
+      <span class="col">{{currency this.subtotal}}</span>
     </div>
-     <div class="row">
+    <div class="row">
       <span class="col">Tax</span>
-      <span class="col">{{currency this.tax sign="$"}}</span>
+      <span class="col">{{currency this.tax}}</span>
     </div>
-     <div class="row">
+    <div class="row">
       <span class="col">Total</span>
-      <span class="col">{{currency this.total sign="$"}}</span>
+      <span class="col">{{currency this.total}}</span>
     </div>
   </section>
-  <button class="btn btn-success float-right" type="button">Check Out</button>
-  </main>
-{{outlet}}
+
+  <button type="button" class="btn btn-success float-right">
+    Check out
+  </button>
+</main>
